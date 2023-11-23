@@ -5,7 +5,8 @@ lista_pedidos = []
 lista_precos = []
 
 while True:
-    print("\nComanda:")
+    
+    print('\nComanda:')
     for for2, preco in zip(lista_pedidos, lista_precos):
         print(f"{for2} - R${preco:.2f}")
 
@@ -26,7 +27,13 @@ while True:
         lista_precos.append(inserir_precos)
 
     elif comanda == 0:
-        print(f'Comanda finalizada, total pedido: {(lista_pedidos)} Preco total: R${sum(lista_precos):2}')
+        print('\nComanda Finalizada: ')
+        for for2, preco in zip(lista_pedidos, lista_precos):
+            print(f'{for2} - R${preco:.2f}')
+        
+        print(f'\nTotal a ser pago: R${sum(lista_precos):.2f}')
+        
         break
+    
     else:
-        comanda = (int(input(f'O produto não está na, lista digite novamente\n{produto_bar}\n{precos_bar}\nDigite seu pedido ou 0 pra fechar: \n')))
+        comanda = (int(input(f'O produto não está na lista, digite novamente (ou 0 para fechar) \n')))
