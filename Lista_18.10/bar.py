@@ -10,7 +10,7 @@ while True:
     for for2, preco in zip(lista_pedidos, lista_precos):
         print(f"{for2} - R${preco:.2f}")
 
-    print(f"Preço total: R${sum(lista_precos):.2f}")
+    print(f"\nPreço total: R${sum(lista_precos):.2f}")
     
     print('\nMenu:')
     for for1, produto in enumerate(produto_bar, start = 1):
