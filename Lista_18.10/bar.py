@@ -5,16 +5,26 @@ lista_pedidos = []
 lista_precos = []
 
 while True:
-    comanda = (int(input(f'\n{produto_bar}\n{precos_bar}\nDigite seu pedido ou 0 pra fechar: ')))
+    print("\nComanda:")
+    for for2, preco in zip(lista_pedidos, lista_precos):
+        print(f"{for2} - R${preco:.2f}")
+
+    print(f"Preço total: R${sum(lista_precos):.2f}")
+    
+    print('\nMenu:')
+    for for1, produto in enumerate(produto_bar, start = 1):
+        print(f'{for1}. {produto:<20}R$ {precos_bar[for1 - 1]:.2f}')
+
+    print('0. Fechar pedido')
+    comanda = int(input('Escolha um item (ou 0 para fechar): '))
 
     if comanda >=1 and comanda <=10:
-        inserir_produtos = produto_bar[comanda-1]
-        inserir_precos = precos_bar[comanda-1]
+        inserir_produtos = produto_bar[comanda - 1]
+        inserir_precos = precos_bar[comanda - 1]
 
         lista_pedidos.append(inserir_produtos)
         lista_precos.append(inserir_precos)
 
-        print(f'\nItem inserido!\n{lista_pedidos} Preco total: R${sum(lista_precos)}')
     elif comanda == 0:
         print(f'Comanda finalizada, total pedido: {(lista_pedidos)} Preco total: R${sum(lista_precos):2}')
         break
