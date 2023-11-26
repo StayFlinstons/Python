@@ -20,7 +20,8 @@ while True:
     try:
         comanda = int(input('Escolha um item (ou 0 para fechar): '))
     except ValueError:
-        comanda = (int(input(f'O produto não está na lista, digite novamente (ou 0 para fechar) \n')))
+        print('Entrada inválida. Por favor, insira um número inteiro.')
+        continue
 
     if comanda >=1 and comanda <=10:
         inserir_produtos = produto_bar[comanda - 1]
@@ -42,4 +43,5 @@ while True:
         try:
             comanda = int(input('Escolha um item (ou 0 para fechar): '))
         except ValueError:
-            comanda = (int(input(f'O produto não está na lista, digite novamente (ou 0 para fechar) \n')))
+            print('Entrada inválida. Por favor, insira um número inteiro.')
+            continue
