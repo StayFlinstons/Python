@@ -1,6 +1,7 @@
 produto_bar = ('Cerveja', 'Velho barrero', '51', 'Timotina', 'Cachaça da mata', 'Linguiça', 'Fritas', 'Ovo', 'Torresmo', 'Salaminho')
 precos_bar = (7.99, 2.00, 2.00, 2.00, 2.00, 1.50, 14.99, 1.50, 1.50, 2.00)
 
+# Dicionário para armazenar as informações de cada mesa
 mesas = {}
 
 while True:
@@ -14,11 +15,12 @@ while True:
         break
     
     if numero_mesa not in mesas:
-        # Cria uma nova mesa se não existir
+        # Cria uma nova entrada para a mesa se não existir
         mesas[numero_mesa] = {'pedidos': [], 'precos': []}
+        print(f'Mesa {numero_mesa} criada.')
 
     while True:
-        print('\nComanda:')
+        print(f'\nComanda da Mesa {numero_mesa}:')
         for item, preco in zip(mesas[numero_mesa]['pedidos'], mesas[numero_mesa]['precos']):
             print(f"{item} - R${preco:.2f}")
 
@@ -32,6 +34,7 @@ while True:
               '1. Adicionar item na mesa\n'
               '2. Remover item da mesa\n'
               '3. Encerrar mesa\n'
+              '4. Mudar de mesa\n'
               '0. Sair\n')
 
         try:
@@ -53,6 +56,8 @@ while True:
                     # Adiciona o item e preço à lista de pedidos e preços da mesa
                     mesas[numero_mesa]['pedidos'].append(inserir_produto)
                     mesas[numero_mesa]['precos'].append(inserir_preco)
+                    
+                    print(f'\nItem {inserir_produto} adicionado à Mesa {numero_mesa}.')
                 else:
                     print('Opção inválida. Tente novamente.')
             except ValueError:
@@ -63,15 +68,16 @@ while True:
                 escolha_remover = int(input('Escolha um item para remover (ou 0 para cancelar): '))
                 if escolha_remover >= 1 and escolha_remover <= len(mesas[numero_mesa]['pedidos']):
                     # Remove o item tanto da lista de pedidos quanto da lista de preços da mesa
-                    del mesas[numero_mesa]['pedidos'][escolha_remover - 1]
-                    del mesas[numero_mesa]['precos'][escolha_remover - 1]
+                    removido = mesas[numero_mesa]['pedidos'].pop(escolha_remover - 1)
+                    preco_removido = mesas[numero_mesa]['precos'].pop(escolha_remover - 1)
+                    print(f'\nItem {removido} removido da Mesa {numero_mesa}.')
                 else:
                     print('Opção inválida. Tente novamente.')
             except ValueError:
                 print('Digite um número válido.')
 
         elif operacao == 3:
-            print('\nComanda Finalizada:')
+            print(f'\nComanda da Mesa {numero_mesa} Finalizada:')
             for item, preco in zip(mesas[numero_mesa]['pedidos'], mesas[numero_mesa]['precos']):
                 print(f'{item} - R${preco:.2f}')
 
@@ -79,6 +85,21 @@ while True:
             # Remove a mesa do sistema
             del mesas[numero_mesa]
             break
+
+        elif operacao == 4:
+            try:
+                nova_mesa = int(input('Digite o número da nova mesa: '))
+                if nova_mesa != numero_mesa:
+                    numero_mesa = nova_mesa
+                    if numero_mesa not in mesas:
+                        mesas[numero_mesa] = {'pedidos': [], 'precos': []}
+                        print(f'\nVocê mudou para a Mesa {numero_mesa}.')
+                    else:
+                        print(f'Mesa {numero_mesa} já existe. Escolha uma mesa válida.')
+                else:
+                    print('Mesa é a mesma. Escolha uma mesa válida.')
+            except ValueError:
+                print('Digite um número válido.')
 
         else:
             print('Opção inválida. Tente novamente.')
