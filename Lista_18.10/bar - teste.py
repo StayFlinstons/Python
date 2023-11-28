@@ -1,7 +1,5 @@
 produto_bar = ('Cerveja', 'Velho barrero', '51', 'Timotina', 'Cachaça da mata', 'Linguiça', 'Fritas', 'Ovo', 'Torresmo', 'Salaminho')
 precos_bar = (7.99, 2.00, 2.00, 2.00, 2.00, 1.50, 14.99, 1.50, 1.50, 2.00)
-
-# Dicionário para armazenar as informações de cada mesa
 mesas = {}
 
 while True:
@@ -15,7 +13,7 @@ while True:
         break
     
     if numero_mesa not in mesas:
-        # Cria uma nova entrada para a mesa se não existir
+        # Criar mesa
         mesas[numero_mesa] = {'pedidos': [], 'precos': []}
         print(f'Mesa {numero_mesa} criada.')
 
@@ -44,16 +42,17 @@ while True:
             continue
         
         if operacao == 0:
+            # Fechar programa
             break
 
         elif operacao == 1:
+            # Adicionar item na mesa
             try:
                 escolha_produto = int(input('Escolha um item para adicionar (ou 0 para cancelar): '))
                 if escolha_produto >= 1 and escolha_produto <= 10:
                     inserir_produto = produto_bar[escolha_produto - 1]
                     inserir_preco = precos_bar[escolha_produto - 1]
 
-                    # Adiciona o item e preço à lista de pedidos e preços da mesa
                     mesas[numero_mesa]['pedidos'].append(inserir_produto)
                     mesas[numero_mesa]['precos'].append(inserir_preco)
                     
@@ -64,10 +63,11 @@ while True:
                 print('Digite um número válido.')
 
         elif operacao == 2:
+            # Remover item da lista
             try:
                 escolha_remover = int(input('Escolha um item para remover (ou 0 para cancelar): '))
                 if escolha_remover >= 1 and escolha_remover <= len(mesas[numero_mesa]['pedidos']):
-                    # Remove o item tanto da lista de pedidos quanto da lista de preços da mesa
+                    
                     removido = mesas[numero_mesa]['pedidos'].pop(escolha_remover - 1)
                     preco_removido = mesas[numero_mesa]['precos'].pop(escolha_remover - 1)
                     print(f'\nItem {removido} removido da Mesa {numero_mesa}.')
@@ -77,16 +77,17 @@ while True:
                 print('Digite um número válido.')
 
         elif operacao == 3:
+            # Encerrar a mesa / fechar comanda
             print(f'\nComanda da Mesa {numero_mesa} Finalizada:')
             for item, preco in zip(mesas[numero_mesa]['pedidos'], mesas[numero_mesa]['precos']):
                 print(f'{item} - R${preco:.2f}')
 
             print(f'\nTotal a ser pago: R${sum(mesas[numero_mesa]['precos']):.2f}')
-            # Remove a mesa do sistema
             del mesas[numero_mesa]
             break
 
         elif operacao == 4:
+            # Mudar a mesa / adicionar uma nova mesa
             try:
                 nova_mesa = int(input('Digite o número da nova mesa: '))
                 if nova_mesa != numero_mesa:
