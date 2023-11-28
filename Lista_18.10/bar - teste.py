@@ -98,7 +98,7 @@ while True:
                     else:
                         print(f'Mesa {numero_mesa} já existe. Escolha uma mesa válida.')
                 else:
-                    print('Mesa é a mesma. Escolha uma mesa válida.')
+                    print('Mesa existente.')
             except ValueError:
                 print('Digite um número válido.')
 
