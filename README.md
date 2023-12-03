@@ -1,2 +1,2 @@
 # Python
-Estudos de Python e algumas atividas da faculdade!
+Estudos de Python e algumas atividades da faculdade!
