@@ -1,0 +1,367 @@
+{
+  "funcionarios": [
+    {
+      "id": 1,
+      "nome": "Alice Johnson",
+      "cargo": "Gerente",
+      "idade": 29,
+      "genero": "Feminino",
+      "gerente": null
+    },
+    {
+      "id": 2,
+      "nome": "Bob Smith",
+      "cargo": "Gerente",
+      "idade": 35,
+      "genero": "Masculino",
+      "gerente": null
+    },
+    {
+      "id": 3,
+      "nome": "Charlie Davis",
+      "cargo": "Gerente",
+      "idade": 24,
+      "genero": "Masculino",
+      "gerente": 1
+    },
+    {
+      "id": 4,
+      "nome": "Diana Adams",
+      "cargo": "Cuidadora",
+      "idade": 32,
+      "genero": "Feminino",
+      "gerente": 2
+    },
+    {
+      "id": 5,
+      "nome": "Evan Frank",
+      "cargo": "Cuidador",
+      "idade": 28,
+      "genero": "Masculino",
+      "gerente": 2
+    },
+    {
+      "id": 6,
+      "nome": "Fiona Hill",
+      "cargo": "Cuidadora",
+      "idade": 40,
+      "genero": "Feminino",
+      "gerente": 1
+    },
+    {
+      "id": 7,
+      "nome": "George King",
+      "cargo": "Cuidador",
+      "idade": 22,
+      "genero": "Masculino",
+      "gerente": 1
+    },
+    {
+      "id": 8,
+      "nome": "Hannah Lopez",
+      "cargo": "Cuidadora",
+      "idade": 27,
+      "genero": "Feminino",
+      "gerente": 3
+    },
+    {
+      "id": 9,
+      "nome": "Ian Young",
+      "cargo": "Cuidador",
+      "idade": 33,
+      "genero": "Masculino",
+      "gerente": 3
+    },
+    {
+      "id": 10,
+      "nome": "Julia Brown",
+      "cargo": "Cuidadora",
+      "idade": 26,
+      "genero": "Feminino",
+      "gerente": 2
+    }
+  ],
+
+  "animais": [
+    {
+      "id": 1,
+      "nome": "Leão",
+      "idade": 5,
+      "genero": "Masculino",
+      "cuidador": 4
+    },
+    {
+      "id": 2,
+      "nome": "Tigre",
+      "idade": 4,
+      "genero": "Feminino",
+      "cuidador": 5
+    },
+    {
+      "id": 3,
+      "nome": "Urso",
+      "idade": 3,
+      "genero": "Masculino",
+      "cuidador": 6
+    },
+    {
+      "id": 4,
+      "nome": "Girafa",
+      "idade": 6,
+      "genero": "Feminino",
+      "cuidador": 7
+    },
+    {
+      "id": 5,
+      "nome": "Elefante",
+      "idade": 7,
+      "genero": "Masculino",
+      "cuidador": 8
+    },
+    {
+      "id": 6,
+      "nome": "Zebra",
+      "idade": 4,
+      "genero": "Feminino",
+      "cuidador": 9
+    },
+    {
+      "id": 7,
+      "nome": "Hipopótamo",
+      "idade": 5,
+      "genero": "Masculino",
+      "cuidador": 10
+    },
+    {
+      "id": 8,
+      "nome": "Pinguim",
+      "idade": 2,
+      "genero": "Feminino",
+      "cuidador": 4
+    },
+    {
+      "id": 9,
+      "nome": "Gorila",
+      "idade": 8,
+      "genero": "Masculino",
+      "cuidador": 3
+    },
+    {
+      "id": 10,
+      "nome": "Macaco",
+      "idade": 3,
+      "genero": "Feminino",
+      "cuidador": 6
+    },
+    {
+      "id": 11,
+      "nome": "Panda",
+      "idade": 4,
+      "genero": "Masculino",
+      "cuidador": 7
+    },
+    {
+      "id": 12,
+      "nome": "Cobra",
+      "idade": 5,
+      "genero": "Feminino",
+      "cuidador": 8
+    },
+    {
+      "id": 13,
+      "nome": "Crocodilo",
+      "idade": 6,
+      "genero": "Masculino",
+      "cuidador": 3
+    },
+    {
+      "id": 14,
+      "nome": "Tartaruga",
+      "idade": 7,
+      "genero": "Feminino",
+      "cuidador": 3
+    },
+    {
+      "id": 15,
+      "nome": "Pássaro",
+      "idade": 2,
+      "genero": "Masculino",
+      "cuidador": 4
+    },
+    {
+      "id": 16,
+      "nome": "Peixe",
+      "idade": 3,
+      "genero": "Feminino",
+      "cuidador": 5
+    },
+    {
+      "id": 17,
+      "nome": "Cavalo",
+      "idade": 4,
+      "genero": "Masculino",
+      "cuidador": 6
+    },
+    {
+      "id": 18,
+      "nome": "Vaca",
+      "idade": 5,
+      "genero": "Feminino",
+      "cuidador": 7
+    },
+    {
+      "id": 19,
+      "nome": "Porco",
+      "idade": 6,
+      "genero": "Masculino",
+      "cuidador": 8
+    },
+    {
+      "id": 20,
+      "nome": "Cachorro",
+      "idade": 7,
+      "genero": "Feminino",
+      "cuidador": 9
+    },
+    {
+      "id": 21,
+      "nome": "Gato",
+      "idade": 8,
+      "genero": "Masculino",
+      "cuidador": 10
+    },
+    {
+      "id": 22,
+      "nome": "Coelho",
+      "idade": 2,
+      "genero": "Feminino",
+      "cuidador": 4
+    },
+    {
+      "id": 23,
+      "nome": "Rato",
+      "idade": 3,
+      "genero": "Masculino",
+      "cuidador": 5
+    },
+    {
+      "id": 24,
+      "nome": "Pato",
+      "idade": 4,
+      "genero": "Feminino",
+      "cuidador": 2
+    },
+    {
+      "id": 25,
+      "nome": "Galinha",
+      "idade": 5,
+      "genero": "Masculino",
+      "cuidador": 7
+    },
+    {
+      "id": 26,
+      "nome": "Gavião",
+      "idade": 6,
+      "genero": "Feminino",
+      "cuidador": 8
+    },
+    {
+      "id": 27,
+      "nome": "Coruja",
+      "idade": 7,
+      "genero": "Masculino",
+      "cuidador": 2
+    },
+    {
+      "id": 28,
+      "nome": "Águia",
+      "idade": 8,
+      "genero": "Feminino",
+      "cuidador": 10
+    },
+    {
+      "id": 29,
+      "nome": "Pombo",
+      "idade": 2,
+      "genero": "Masculino",
+      "cuidador": 4
+    },
+    {
+      "id": 30,
+      "nome": "Papagaio",
+      "idade": 3,
+      "genero": "Feminino",
+      "cuidador": 3
+    },
+    {
+      "id": 31,
+      "nome": "Periquito",
+      "idade": 4,
+      "genero": "Masculino",
+      "cuidador": 6
+    },
+    {
+      "id": 32,
+      "nome": "Canário",
+      "idade": 5,
+      "genero": "Feminino",
+      "cuidador": 7
+    },
+    {
+      "id": 33,
+      "nome": "Calopsita",
+      "idade": 6,
+      "genero": "Masculino",
+      "cuidador": 1
+    },
+    {
+      "id": 34,
+      "nome": "Cacatua",
+      "idade": 7,
+      "genero": "Feminino",
+      "cuidador": 9
+    },
+    {
+      "id": 35,
+      "nome": "Arara",
+      "idade": 8,
+      "genero": "Masculino",
+      "cuidador": 10
+    },
+    {
+      "id": 36,
+      "nome": "Pomba",
+      "idade": 2,
+      "genero": "Feminino",
+      "cuidador": 1
+    },
+    {
+      "id": 37,
+      "nome": "Pardal",
+      "idade": 3,
+      "genero": "Masculino",
+      "cuidador": 5
+    },
+    {
+      "id": 38,
+      "nome": "Andorinha",
+      "idade": 4,
+      "genero": "Feminino",
+      "cuidador": 1
+    },
+    {
+      "id": 39,
+      "nome": "Beija-flor",
+      "idade": 5,
+      "genero": "Masculino",
+      "cuidador": 7
+    },
+    {
+      "id": 40,
+      "nome": "Gavião-real",
+      "idade": 6,
+      "genero": "Feminino",
+      "cuidador": 8
+    }
+  ]
+}
