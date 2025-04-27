@@ -51,8 +51,42 @@ def select_usuarios(nome_usuario=''):
     finally:
         session.close()
 
+def update_nome_usuario(id_usuario, nome_usuario):
+    session = Session()
+    try:
+        if all([id_usuario, nome_usuario]):
+            usuario = session.query(Usuario).filter(Usuario.id == id_usuario).first()
+            usuario.nome = nome_usuario
+            session.commit()
+            print('Nome alterado com sucesso!')
+        else:
+            print('É obrigatorio informar o ID e o novo nome do usuário!')
+    except Exception as e:
+        session.rollback()
+        print('Ocorreu um erro ao atualizar o usuário!')
+    finally:
+        session.close()
+
+def delete_usuario(id_usuario):
+    session = Session()
+    try:
+        if id_usuario:
+            usuario = session.query(Usuario).filter(Usuario.id == id_usuario).first()
+            session.delete(usuario)
+            session.commit()
+            print(f'Usuário de ID {id_usuario} deletado com sucesso!')
+        else:
+            print('É obrigatorio informar o ID do usuário a ser deletado!')
+    except Exception as e:
+        session.rollback()
+        print(f'Erro ao tentar deletar o usuário de ID {id_usuario}')
+    finally:
+        session.close()
+
 if __name__ == '__main__':
     os.system('cls')
     Base.metadata.create_all(engine)
     # insert_usuario('Toli', 'Bola')
-    select_usuarios('Richard')
+    # select_usuarios('Richard')
+    # update_nome_usuario(1, 'Richard Teste')
+    delete_usuario(1)
