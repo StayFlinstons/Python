@@ -8,14 +8,22 @@ Session = sessionmaker(engine)
 def menu():
       while True:
             print("""
+====================
 Escolha uma opção:
 1. Inserir usuário
+2. Deletar usuário
+3. Listar usuários
 0. Sair
-            """)
+====================
+ """)
             options = input('Digite sua escolha: ')
             try:
                   if options == '1':
                         insert_users()
+                  elif options == '2':
+                        delete_user()
+                  elif options == '3':
+                       list_all_users()
                   elif options == '0':
                         break
                   else:
@@ -27,20 +35,10 @@ def insert_users():
     session = Session()
     name_user = input('Nome: ').upper()
     position_user = input('Cargo: ').upper()
-    account_active_user = input('Status: (1 - TRUE ou 2 - FALSE): ').strip().upper()
-
-    if account_active_user == '1':
-        account_active_user = True
-    elif account_active_user == '2':
-        account_active_user = False
-    else:
-        print('Valor inválido para status, insira "TRUE" ou "FALSE".')
-        session.close()
-        return
 
     try:
-        if all([name_user, position_user, account_active_user is not None]):
-            users = Users(name=name_user, position=position_user, account_active=account_active_user)
+        if all([name_user, position_user]):
+            users = Users(name=name_user, position=position_user)
             session.add(users)
             session.commit()
             print(f'O usuário {name_user} foi cadastrado com sucesso!')
@@ -53,5 +51,53 @@ def insert_users():
         session.close()
 
 def delete_user():
+    session = Session()
+    id_user = int(input('Digite o ID: '))
+
+    user = session.query(Users).filter(Users.id == id_user).first()
+    if user:
+         name = user.name
+    else:
+         name = None
+
+    try:
+        if id_user:
+            users = session.query(Users).filter(Users.id==id_user).first()
+            session.delete(users)
+            session.commit()
+            print(f'Usuário {name} deletado com sucesso!')
+        else:
+             print('É obrigatorio inserir um ID válido.')
+    except Exception as e:
+            print(f'Erro ao tentar deletar o usuário {name}')
+            session.rollback()
+    finally:
+            session.close()
+
+def list_all_users():
      session = Session()
-     id_user = int(input('Digite o ID: '))
+
+     print('''
+1. Listar todos os usuários
+2. Listar um usuário por ID
+                         ''')
+     options = int(input('Digite sua escolha: '))
+
+     if options == 1:
+          try:
+               dados = session.query(Users).all()
+               for i in dados:
+                    print(f'\nID: {i.id}\nUsuário: {i.name}\nCargo: {i.position}\nAtivo: {i.account_active}\n')
+          except Exception as e:
+                    print('Ocorreu um erro.')
+
+     elif options ==2:
+          id_user = int(input('Digite o ID: '))
+          try:
+               dados = session.query(Users).filter(Users.id == id_user)
+               for i in dados:
+                    print(f'\nID: {i.id}\nUsuário: {i.name}\nCargo: {i.position}\nAtivo: {i.account_active}\n')
+          except Exception as e:
+               print('Ocorreu um erro.')
+     else:
+          print('Opção inválida, digite novamente.')
