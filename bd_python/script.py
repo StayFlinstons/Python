@@ -89,4 +89,4 @@ if __name__ == '__main__':
     # insert_usuario('Toli', 'Bola')
     # select_usuarios('Richard')
     # update_nome_usuario(1, 'Richard Teste')
-    delete_usuario(1)
+    # delete_usuario(1)
