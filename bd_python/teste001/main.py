@@ -27,4 +27,4 @@ class Users(Base):
 if __name__ == '__main__':
     os.system('cls')
     Base.metadata.create_all(engine)
-    functions.menu()
+    functions.run_app()
