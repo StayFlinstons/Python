@@ -8,6 +8,7 @@ Session = sessionmaker(engine)
 def run_app():
       while True:
             print("""
+                  
 ====================
 Escolha uma opção:
 1. Inserir usuário
@@ -16,6 +17,7 @@ Escolha uma opção:
 4. Atualiar usuário
 0. Sair
 ====================
+                  
  """)
             options = input('Digite sua escolha: ')
             try:
@@ -81,8 +83,10 @@ def list_all_users():
      session = Session()
 
      print('''
+           
 1. Listar todos os usuários
 2. Listar um usuário por ID
+           
                          ''')
      options = int(input('Digite sua escolha: '))
 
